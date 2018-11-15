@@ -307,14 +307,10 @@ ip6tables -A INPUT -p tcp -m multiport --dports $IDENT -j REJECT --reject-with t
 # ip6tables -A INPUT -p tcp --syn -m multiport --dports $FTP -m recent --name ftp_attack --rcheck --seconds 60 --hitcount 5 -j REJECT --reject-with tcp-reset
 
 ###########################################################
-# 全ホスト(ブロードキャストアドレス、マルチキャストアドレス)宛パケットは破棄
+# 全ホスト(マルチキャストアドレス)宛パケットは破棄
 ###########################################################
-ip6tables -A INPUT -d 192.168.1.255   -j LOG --log-prefix "drop_broadcast: "
-ip6tables -A INPUT -d 192.168.1.255   -j DROP
-ip6tables -A INPUT -d 255.255.255.255 -j LOG --log-prefix "drop_broadcast: "
-ip6tables -A INPUT -d 255.255.255.255 -j DROP
-ip6tables -A INPUT -d 224.0.0.1       -j LOG --log-prefix "drop_broadcast: "
-ip6tables -A INPUT -d 224.0.0.1       -j DROP
+ip6tables -A INPUT -d FF01::101 -j LOG --log-prefix "drop_broadcast: "
+ip6tables -A INPUT -d FF01::101 -j DROP
 
 ###########################################################
 # 全ホスト(ANY)からの入力許可
