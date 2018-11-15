@@ -78,7 +78,7 @@ PATH=/sbin:/usr/sbin:/bin:/usr/bin
 
 SSH=22
 FTP=20,21
-DNS=53
+DNS=53,853
 SMTP=25,465,587
 POP3=110,995
 IMAP=143,993
