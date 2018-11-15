@@ -107,7 +107,7 @@ initialize()
 # ルール適用後の処理
 finailize()
 {
-	/sbin/iptables-save > /etc/iptables/rules.v4# 設定の保存
+	/sbin/iptables-save > /etc/iptables/rules.v4 # 設定の保存
 	/etc/init.d/netfilter-persistent restart # 保存したもので再起動してみる
 	return 0
 	return 1
