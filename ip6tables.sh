@@ -60,8 +60,8 @@ PATH=/sbin:/usr/sbin:/bin:/usr/bin
 
 # 信頼可能ホスト(配列)
 # ALLOW_HOSTS=(
-# 	"xxxx:xxxx:xxxx:xxxx"
-# 	"xxxx:xxxx:xxxx:xxxx"
+# 	"2606:4700:4700::1111"
+# 	"2606:4700:4700::1001"
 # 	"xxxx:xxxx:xxxx:xxxx"
 # )
 
