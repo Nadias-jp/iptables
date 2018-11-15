@@ -47,29 +47,29 @@ PATH=/sbin:/usr/sbin:/bin:/usr/bin
 ###########################################################
 
 # 内部ネットワークとして許可する範囲
-# LOCAL_NET="xxx.xxx.xxx.xxx/xx"
+# LOCAL_NET="xxxx:xxxx:xxxx:xxxx/xx"
 
 # 内部ネットワークとして一部制限付きで許可する範囲
-# LIMITED_LOCAL_NET="xxx.xxx.xxx.xxx/xx"
+# LIMITED_LOCAL_NET="xxxx:xxxx:xxxx:xxxx/xx"
 
 # ZabbixサーバーIP
-# ZABBIX_IP="xxx.xxx.xxx.xxx"
+# ZABBIX_IP="xxxx:xxxx:xxxx:xxxx"
 
 # 全てのIPを表す設定を定義
-# ANY="0.0.0.0/0"
+# ANY="::/0"
 
 # 信頼可能ホスト(配列)
 # ALLOW_HOSTS=(
-# 	"xxx.xxx.xxx.xxx"
-# 	"xxx.xxx.xxx.xxx"
-# 	"xxx.xxx.xxx.xxx"
+# 	"xxxx:xxxx:xxxx:xxxx"
+# 	"xxxx:xxxx:xxxx:xxxx"
+# 	"xxxx:xxxx:xxxx:xxxx"
 # )
 
 # 無条件破棄するリスト(配列)
 # DENY_HOSTS=(
-# 	"xxx.xxx.xxx.xxx"
-# 	"xxx.xxx.xxx.xxx"
-# 	"xxx.xxx.xxx.xxx"
+# 	"xxxx:xxxx:xxxx:xxxx"
+# 	"xxxx:xxxx:xxxx:xxxx"
+# 	"xxxx:xxxx:xxxx:xxxx"
 # )
 
 ###########################################################
@@ -339,8 +339,8 @@ ip6tables -A INPUT -p tcp -m multiport --dports $SSH -j ACCEPT # ANY -> SEL
 # ip6tables -A INPUT -p tcp -m multiport --dports $FTP -j ACCEPT # ANY -> SELF
 
 # DNS
-# ip6tables -A INPUT -p tcp -m multiport --sports $DNS -j ACCEPT # ANY -> SELF
-# ip6tables -A INPUT -p udp -m multiport --sports $DNS -j ACCEPT # ANY -> SELF
+ip6tables -A INPUT -p tcp -m multiport --sports $DNS -j ACCEPT # ANY -> SELF
+ip6tables -A INPUT -p udp -m multiport --sports $DNS -j ACCEPT # ANY -> SELF
 
 # SMTP
 # ip6tables -A INPUT -p tcp -m multiport --sports $SMTP -j ACCEPT # ANY -> SELF
