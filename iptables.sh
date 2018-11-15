@@ -339,8 +339,8 @@ iptables -A INPUT -p tcp -m multiport --dports $SSH -j ACCEPT # ANY -> SEL
 # iptables -A INPUT -p tcp -m multiport --dports $FTP -j ACCEPT # ANY -> SELF
 
 # DNS
-# iptables -A INPUT -p tcp -m multiport --sports $DNS -j ACCEPT # ANY -> SELF
-# iptables -A INPUT -p udp -m multiport --sports $DNS -j ACCEPT # ANY -> SELF
+iptables -A INPUT -p tcp -m multiport --sports $DNS -j ACCEPT # ANY -> SELF
+iptables -A INPUT -p udp -m multiport --sports $DNS -j ACCEPT # ANY -> SELF
 
 # SMTP
 # iptables -A INPUT -p tcp -m multiport --sports $SMTP -j ACCEPT # ANY -> SELF
