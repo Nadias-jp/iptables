@@ -56,13 +56,12 @@ PATH=/sbin:/usr/sbin:/bin:/usr/bin
 # ZABBIX_IP="xxx.xxx.xxx.xxx"
 
 # 全てのIPを表す設定を定義
-# ANY="0.0.0.0/0"
+ ANY="0.0.0.0/0"
 
 # 信頼可能ホスト(配列)
  ALLOW_HOSTS=(
  	"1.1.1.1"
  	"1.0.0.1"
-# 	"xxx.xxx.xxx.xxx"
  )
 
 # 無条件破棄するリスト(配列)
@@ -78,7 +77,7 @@ PATH=/sbin:/usr/sbin:/bin:/usr/bin
 
 SSH=22
 FTP=20,21
-DNS=53,5353,853
+DNS=53
 SMTP=25,465,587
 POP3=110,995
 IMAP=143,993
@@ -339,17 +338,17 @@ iptables -A INPUT -p tcp -m multiport --dports $SSH -j ACCEPT # ANY -> SEL
 # iptables -A INPUT -p tcp -m multiport --dports $FTP -j ACCEPT # ANY -> SELF
 
 # DNS
-iptables -A INPUT -p tcp -m multiport --sports $DNS -j ACCEPT # ANY -> SELF
-iptables -A INPUT -p udp -m multiport --sports $DNS -j ACCEPT # ANY -> SELF
+iptables -A INPUT -p tcp -m multiport --dports $DNS -j ACCEPT # ANY -> SELF
+iptables -A INPUT -p udp -m multiport --dports $DNS -j ACCEPT # ANY -> SELF
 
 # SMTP
-# iptables -A INPUT -p tcp -m multiport --sports $SMTP -j ACCEPT # ANY -> SELF
+# iptables -A INPUT -p tcp -m multiport --dports $SMTP -j ACCEPT # ANY -> SELF
 
 # POP3
-# iptables -A INPUT -p tcp -m multiport --sports $POP3 -j ACCEPT # ANY -> SELF
+# iptables -A INPUT -p tcp -m multiport --dports $POP3 -j ACCEPT # ANY -> SELF
 
 # IMAP
-# iptables -A INPUT -p tcp -m multiport --sports $IMAP -j ACCEPT # ANY -> SELF
+# iptables -A INPUT -p tcp -m multiport --dports $IMAP -j ACCEPT # ANY -> SELF
 
 ###########################################################
 # ローカルネットワーク(制限付き)からの入力許可
