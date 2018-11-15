@@ -329,17 +329,17 @@ ip6tables -A INPUT -p tcp -m multiport --dports $SSH -j ACCEPT # ANY -> SEL
 # ip6tables -A INPUT -p tcp -m multiport --dports $FTP -j ACCEPT # ANY -> SELF
 
 # DNS
-ip6tables -A INPUT -p tcp -m multiport --sports $DNS -j ACCEPT # ANY -> SELF
-ip6tables -A INPUT -p udp -m multiport --sports $DNS -j ACCEPT # ANY -> SELF
+ip6tables -A INPUT -p tcp -m multiport --dports $DNS -j ACCEPT # ANY -> SELF
+ip6tables -A INPUT -p udp -m multiport --dports $DNS -j ACCEPT # ANY -> SELF
 
 # SMTP
-# ip6tables -A INPUT -p tcp -m multiport --sports $SMTP -j ACCEPT # ANY -> SELF
+# ip6tables -A INPUT -p tcp -m multiport --dports $SMTP -j ACCEPT # ANY -> SELF
 
 # POP3
-# ip6tables -A INPUT -p tcp -m multiport --sports $POP3 -j ACCEPT # ANY -> SELF
+# ip6tables -A INPUT -p tcp -m multiport --dports $POP3 -j ACCEPT # ANY -> SELF
 
 # IMAP
-# ip6tables -A INPUT -p tcp -m multiport --sports $IMAP -j ACCEPT # ANY -> SELF
+# ip6tables -A INPUT -p tcp -m multiport --dports $IMAP -j ACCEPT # ANY -> SELF
 
 ###########################################################
 # ローカルネットワーク(制限付き)からの入力許可
