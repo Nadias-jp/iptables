@@ -194,12 +194,6 @@ ip6tables -A INPUT -p tcp --tcp-flags ACK,FIN FIN     -j STEALTH_SCAN
 ip6tables -A INPUT -p tcp --tcp-flags ACK,PSH PSH     -j STEALTH_SCAN
 ip6tables -A INPUT -p tcp --tcp-flags ACK,URG URG     -j STEALTH_SCAN
 
-###########################################################
-# 攻撃対策: フラグメントパケットによるポートスキャン,DOS攻撃
-# namap -v -sF などの対策
-###########################################################
-ip6tables -A INPUT -f -j LOG --log-prefix 'fragment_packet:'
-ip6tables -A INPUT -f -j DROP
  
 ###########################################################
 # 攻撃対策: Ping of Death
