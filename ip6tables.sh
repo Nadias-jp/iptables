@@ -206,7 +206,7 @@ ip6tables -A INPUT -f -j DROP
 ###########################################################
 # 毎秒1回を超えるpingが10回続いたら破棄
 ip6tables -N PING_OF_DEATH # "PING_OF_DEATH" という名前でチェーンを作る
-ip6tables -A PING_OF_DEATH -p icmp --icmp-type echo-request \
+ip6tables -A PING_OF_DEATH -p icmp --icmpv6-type echo-request \
          -m hashlimit \
          --hashlimit 1/s \
          --hashlimit-burst 10 \
@@ -220,7 +220,7 @@ ip6tables -A PING_OF_DEATH -j LOG --log-prefix "ping_of_death_attack: "
 ip6tables -A PING_OF_DEATH -j DROP
 
 # ICMP は "PING_OF_DEATH" チェーンへジャンプ
-ip6tables -A INPUT -p icmp --icmp-type echo-request -j PING_OF_DEATH
+ip6tables -A INPUT -p icmp --icmpv6-type echo-request -j PING_OF_DEATH
 
 ###########################################################
 # 攻撃対策: SYN Flood Attack
