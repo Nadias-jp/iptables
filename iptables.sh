@@ -59,11 +59,11 @@ PATH=/sbin:/usr/sbin:/bin:/usr/bin
 # ANY="0.0.0.0/0"
 
 # 信頼可能ホスト(配列)
-# ALLOW_HOSTS=(
+ ALLOW_HOSTS=(
+ 	"1.1.1.1"
+ 	"1.0.0.1"
 # 	"xxx.xxx.xxx.xxx"
-# 	"xxx.xxx.xxx.xxx"
-# 	"xxx.xxx.xxx.xxx"
-# )
+ )
 
 # 無条件破棄するリスト(配列)
 # DENY_HOSTS=(
